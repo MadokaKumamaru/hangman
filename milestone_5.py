@@ -1,0 +1,61 @@
+import random
+      
+class Hangman:
+    def __init__(self, word_list, num_lives = 5):
+        self.word_list = word_list
+        self.num_lives = num_lives
+        self.word = random.choice(self.word_list)
+        self.word_guessed = ['_'] * len(self.word)
+        self.num_letters = len(set(self.word))
+        self.list_of_guesses = []
+        
+    def count_num_letters(self):
+        remaining_letters = set()
+        for index, item in enumerate(self.word_guessed):
+          if item == '_':
+           letter = [*self.word][index]
+           remaining_letters.add(letter)
+        self.num_letters = len(remaining_letters)
+        
+    def check_guess(self, guess):
+     self.guess_lower = guess.lower()
+     if guess in self.word:
+      print(f"Good guess! {guess} is in the word.")
+      for item, index in enumerate(self.word):
+          if item == guess:
+              self.word_guessed[index] = item
+              self.count_num_letters()
+              self.num_letters -= 1
+     else:
+        self.num_lives -= 1
+        print(f"Sorry, {guess} is not in the word.") 
+        print(f"You have {self.num_lives} lives left.")
+      
+     
+    def ask_for_input(self):
+        while True:
+            guess = input('Please enter a single alphabetical character: ')
+            if len(guess) != 1:
+                print("Invalid letter. Please, enter a single alphabetical character.")
+            elif guess in self.list_of_guesses:
+                print("You already tried that letter!")
+            elif self.num_lives == 0:
+                print("You lost!")
+                break
+            else:
+                self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+                
+  
+def play_game(word_list):
+    num_lives = 5
+    game = Hangman(word_list, num_lives)
+    while True:
+        if num_lives == 0:
+            print("You lost!")
+        elif num_lives > 0:
+            game.ask_for_input()
+        else:
+            print("Congratulations. You won the game!'")
+
+play_game(['banana'])

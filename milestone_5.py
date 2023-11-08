@@ -9,14 +9,7 @@ class Hangman:
         self.num_letters = len(set(self.word))
         self.list_of_guesses = []
         
-    def count_num_letters(self):
-        remaining_letters = set()
-        for index, item in enumerate(self.word_guessed):
-          if item == '_':
-           letter = [*self.word][index]
-           remaining_letters.add(letter)
-        self.num_letters = len(remaining_letters)
-        
+    
     def check_guess(self, guess):
      self.guess_lower = guess.lower()
      if guess in self.word:
@@ -24,7 +17,6 @@ class Hangman:
       for item, index in enumerate(self.word):
           if item == guess:
               self.word_guessed[index] = item
-              self.count_num_letters()
               self.num_letters -= 1
      else:
         self.num_lives -= 1
@@ -39,9 +31,6 @@ class Hangman:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
-            elif self.num_lives == 0:
-                print("You lost!")
-                break
             else:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)

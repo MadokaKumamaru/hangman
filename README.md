@@ -12,7 +12,7 @@ List of attributes in the class Hangman:
 1. word (string): a word to be guessed, picked randomly from the word_list using random.choice method
 2. word_guessed (list): a list of the letters of the word, with _ for each letter not yet guessed. 
 3. num_letters (int): a number of unique letters in the word that have not been guessed yet
-4. num_lives (int): a number of lives the player has at the start of the game
+4. num_lives (int): a number of lives the player has at the start of the game which is 5 by default
 5. word_list (list): a list of words
 6. list_of_guesses (list): a list of the guesses that have already been tried
 

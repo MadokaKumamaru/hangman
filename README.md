@@ -16,6 +16,5 @@ List of attributes in the class Hangman:
 5. word_list (list): a list of words
 6. list_of_guesses (list): a list of the guesses that have already been tried
 
-All the codes required to play the game is stored in milestone_5.py so you can start playing by
-running milestone_5.py Python file.
+All the codes required to play the game is stored in milestone_5.py
 

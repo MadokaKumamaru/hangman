@@ -1,7 +1,7 @@
-# Import random module which is one of Python's built-in modules
+# Import random module
 import random
       
-# Define the class Hangman with 2 parameters, 6 attributes, and 2 methods      
+# Define the class Hangman   
 class Hangman:
     def __init__(self, word_list, num_lives = 5):
         self.word_list = word_list
@@ -39,7 +39,7 @@ class Hangman:
                 self.list_of_guesses.append(guess)
                 break
                 
-# Define a function play_game() with 1 parameter  
+# Define a function play_game()
 def play_game(word_list):
     num_lives = 5
     game = Hangman(word_list, num_lives)
@@ -53,6 +53,6 @@ def play_game(word_list):
             print("Congradurations. You won the game!")
             break
 
-# Create a word_list with 5 words and try the game using play_game() function
+# Create a word_list try the game using play_game() function
 word_list = ['banana', 'strawberry', 'apple', 'lychee', 'mango']
 play_game(word_list)
